@@ -56,3 +56,28 @@ We built the fundamental "brain" and "digestive tract" of the application — ho
 4. **Authentication Middleware and Validate (express-validator)**
    We wrapped private endpoints like "/api/orders" with a `protect` middleware function. 
    - **Why?** It automatically intercepts the request, sniffs out the JWT token in the headers, decodes it without needing a database hit, populates `req.user`, and lets the real Controller process the request securely. Inversely, `express-validator` allows us to enforce array shapes, lengths, and formats (like valid emails) immediately.
+
+---
+
+## Phase 3: Frontend Implementation & Luxury Aesthetic
+
+### What we did:
+We implemented the visual foundation for a top-tier luxury e-commerce experience (Atelier Obsidian / The Muse), ensuring a cinematic, highly-animated, and modular user interface without relying on heavy external styling libraries.
+
+### Concepts Used:
+
+1. **Vanilla CSS with Dynamic Custom Properties (`index.css`)**
+   Instead of using Tailwind or Bootstrap, we relied entirely on Vanilla CSS orchestrated around custom CSS variables (`--bg-primary`, `--font-serif`).
+   - **Why?** Maximum flexibility for pixel-perfect luxury aesthetics. It allows us to easily toggle between a dramatic "Dark Mode" (charcoal / amber) and a calm "Light Mode" (ivory / beige) by simply altering variables.
+
+2. **React Context (`ThemeContext.jsx`)**
+   We centralized the dark/light mode toggle in a Context Provider that directly manipulates the `data-theme` attribute on the global `document.documentElement` (`<html>` tag).
+   - **Why?** This prevents "prop-drilling" and allows any component (like the Navbar) to trigger a global visual overhaul instantly and uniformly.
+
+3. **Framer Motion for Cinematic Interactions**
+   We integrated `framer-motion` for complex scroll-linked parallax, staggered reveals, and smooth cubic-bezier transitions.
+   - **Why?** True luxury UI isn't static. Wrapping our layout (`Hero`, `CuratedCollection`) in motion components creates an "Apple-level" experiential storytelling feel, distinguishing us from cheap, templated stores.
+
+4. **Asymmetrical / Broken Grid Layouts (`components.css`)**
+   We abandoned standard rows and columns in favor of a 12-column CSS Grid where product cards deliberately span overlapping or offset tracks (`aspect-ratio: 4/5`, `.product-card.tall`, etc.).
+   - **Why?** It replicates an editorial fashion magazine, forcing users to slow down, explore, and focus on individual items rather than skimming them as mere products.
