@@ -1,0 +1,220 @@
+/* Curated Section */
+.curated-section {
+  padding: 10rem 0;
+  background-color: var(--bg-primary);
+  position: relative;
+}
+
+.curated-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8rem;
+}
+
+.curated-filters {
+  flex: 0 0 200px;
+}
+
+.filter-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+  color: var(--text-primary);
+}
+
+.filter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.filter-list li {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.filter-list li:hover, .filter-list li.active {
+  color: var(--accent-gold);
+}
+
+.curated-title-area {
+  flex: 1;
+  max-width: 600px;
+}
+
+.section-title {
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 1;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.section-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 400px;
+}
+
+/* Broken Grid System */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 6rem;
+}
+
+.product-image-container {
+  overflow: hidden;
+  position: relative;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+  width: 100%;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-cinematic);
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.2);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.4s ease;
+}
+
+.product-card:hover .product-overlay {
+  opacity: 1;
+}
+
+.quick-view-btn {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  padding: 1rem 2rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transform: translateY(20px);
+  transition: all 0.4s var(--ease-cinematic);
+}
+
+.product-card:hover .quick-view-btn {
+  transform: translateY(0);
+}
+
+.quick-view-btn:hover {
+  background: var(--accent-gold);
+  color: #fff;
+}
+
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.product-name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.product-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-gold);
+}
+
+.product-price {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+/* Asymmetrical Grid Settings */
+.product-card.portrait {
+  grid-column: span 5;
+}
+.product-card.portrait .product-image-container {
+  aspect-ratio: 4/5;
+}
+
+.product-card.tall {
+  grid-column: span 4;
+  margin-top: 4rem;
+}
+.product-card.tall .product-image-container {
+  aspect-ratio: 9/16;
+}
+
+.product-card.landscape {
+  grid-column: span 7;
+}
+.product-card.landscape .product-image-container {
+  aspect-ratio: 16/9;
+}
+
+.product-card.square {
+  grid-column: span 5;
+  grid-column-start: 8;
+  margin-top: -6rem;
+}
+.product-card.square .product-image-container {
+  aspect-ratio: 1/1;
+}
+
+/* Footer / CTA section styling */
+.cta-section {
+  padding: 10rem 0;
+  text-align: center;
+  background-color: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+  margin-top: 4rem;
+}
+
+.cta-title {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  line-height: 1.2;
+}
+
+.cta-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-style: italic;
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--text-primary);
+  position: relative;
+  z-index: 2;
+}
