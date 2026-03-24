@@ -2,17 +2,18 @@ import { render, screen } from '@testing-library/react';
 import App from './App';
 import { describe, it, expect, vi } from 'vitest';
 
-describe('App', () => {
-    it('renders ShopSmart title', () => {
-        // Mock fetch
-        global.fetch = vi.fn(() =>
-            Promise.resolve({
-                json: () => Promise.resolve({ status: 'ok', message: 'Test Msg', timestamp: 'now' })
-            })
-        );
+describe('App Root', () => {
+  it('renders the Atelier Obsidian application context', () => {
+    
+    const observe = vi.fn();
+    const unobserve = vi.fn();
+    window.IntersectionObserver = vi.fn(() => ({
+      observe,
+      unobserve,
+    }));
 
-        render(<App />);
-        const linkElement = screen.getByText(/ShopSmart/i);
-        expect(linkElement).toBeInTheDocument();
-    });
+    render(<App />);
+    const linkElement = screen.getByText(/ATELIER OBSIDIAN/i);
+    expect(linkElement).toBeInTheDocument();
+  });
 });
