@@ -81,3 +81,28 @@ We implemented the visual foundation for a top-tier luxury e-commerce experience
 4. **Asymmetrical / Broken Grid Layouts (`components.css`)**
    We abandoned standard rows and columns in favor of a 12-column CSS Grid where product cards deliberately span overlapping or offset tracks (`aspect-ratio: 4/5`, `.product-card.tall`, etc.).
    - **Why?** It replicates an editorial fashion magazine, forcing users to slow down, explore, and focus on individual items rather than skimming them as mere products.
+
+---
+
+## Phase 4: Unit Testing & Structural Resiliency
+
+### What we did:
+We established a robust frontend testing environment to guarantee that our complex state logic (like Theme Context) and React Router configurations render identically under test conditions without catastrophic crashes.
+
+### Concepts Used:
+
+1. **Vitest & React Testing Library (RTL)**
+   Rather than falling back to Jest, we utilized `vitest` which natively hooks into Vite's incredibly fast compile architecture. We paired this with `@testing-library/react`.
+   - **Why?** RTL forces us to test the DOM exactly how a user operates it (e.g. `screen.getByText('Toggle Theme')` instead of querying abstract CSS classes). Vitest gives us Hot Module Reload-level speed when iterating on assertions.
+
+2. **Isolated Environment Simulation (`jsdom`)**
+   Since Node.js doesn't actually have a "browser" (no `window` or `document`), we installed `jsdom` configuration in our `vite.config.js`.
+   - **Why?** It generates a lightweight, mock virtual browser environment purely in memory, enabling DOM operations like `document.documentElement.setAttribute()` inside our React components during testing.
+
+3. **Context Wrapping & Provider Mocks**
+   When testing components like `Navbar`, writing standard wrappers causes failures because the components expect to consume Context. We engineered custom render wrappers (`renderWithProviders`) injecting `<ThemeProvider>` and `<BrowserRouter>`.
+   - **Why?** This guarantees tests run under real topological constraints. If a developer accidentally breaks routing context down the line, these specific wrappers immediately track and isolate the failure.
+
+4. **Event Firing (`@testing-library/user-event`)**
+   We evaluated Theme transitions via asynchronous user event simulation (`await user.click(button)`), simulating accurate biological event loops.
+   - **Why?** Using `userEvent` triggers native browser API chains (hover, mousedown, mouseup, click) unlike `fireEvent`, guaranteeing the interactive CSS transitions behave correctly in production.
