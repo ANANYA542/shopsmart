@@ -5,8 +5,6 @@ import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Auth from './pages/Auth';
 import Cart from './pages/Cart';
-import ComboExperience from './pages/ComboExperience';
-import GiftBuilder from './pages/GiftBuilder';
 
 function App() {
   return (
@@ -22,8 +20,6 @@ function App() {
               <Route path="/editorial" element={<Shop />} />
               <Route path="/login" element={<Auth />} />
               <Route path="/cart" element={<Cart />} />
-              <Route path="/combo" element={<ComboExperience />} />
-              <Route path="/gift-builder" element={<GiftBuilder />} />
             </Routes>
           </main>
         </div>
