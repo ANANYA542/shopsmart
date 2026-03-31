@@ -14,7 +14,7 @@ export default function CTA() {
     <section ref={ref} className="cta-section">
       <motion.div style={{ y }} className="cta-content">
         <h2 className="cta-title">Refined taste for the modern atelier.</h2>
-        <p className="cta-quote">"Style is the soul's expression, but a sweet indulgence is its silent celebration."</p>
+        <p className="cta-quote">&ldquo;Style is the soul&apos;s expression, but a sweet indulgence is its silent celebration.&rdquo;</p>
         <div style={{ marginTop: '4rem' }}>
           <button className="primary-btn">Begin The Ritual</button>
         </div>
