@@ -218,6 +218,7 @@ button {
   transition: all 0.4s var(--ease-cinematic);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
 }
 
 .primary-btn::before {
@@ -236,10 +237,23 @@ button {
 
 .primary-btn:hover {
   color: var(--bg-primary);
+  box-shadow: 0 4px 20px rgba(var(--text-primary), 0.1);
+  transform: translateY(-2px);
+  border-color: var(--text-primary);
 }
 
 .primary-btn:hover::before {
   transform: scaleY(1);
+}
+
+/* Card Hover Interactions */
+.card-hover {
+  transition: transform 0.6s var(--ease-cinematic), box-shadow 0.6s var(--ease-cinematic);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
 }
 
 .hero-image-wrapper {
