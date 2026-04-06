@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/layout/Navbar';
-import Footer from './components/layout/Footer';
 import Home from './pages/Home';
+import Shop from './pages/Shop';
 import Auth from './pages/Auth';
 import Cart from './pages/Cart';
 import ComboExperience from './pages/ComboExperience';
@@ -12,18 +12,20 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
-        <div className="app-wrapper" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <div className="app-wrapper">
           <Navbar />
-          <main style={{ flex: 1 }}>
+          <main>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/curations" element={<Shop />} /> 
+              <Route path="/editorial" element={<Shop />} />
               <Route path="/login" element={<Auth />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/combo" element={<ComboExperience />} />
               <Route path="/gift-builder" element={<GiftBuilder />} />
             </Routes>
           </main>
-          <Footer />
         </div>
       </Router>
     </ThemeProvider>

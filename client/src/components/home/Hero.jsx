@@ -1,14 +1,7 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
-  const scrollToShop = (e) => {
-    e.preventDefault();
-    const target = document.getElementById('shop');
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section className="hero" style={{ padding: '0 5%', marginTop: '6rem', position: 'relative', height: '85vh', display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-start' }}>
       
@@ -42,9 +35,9 @@ export default function Hero() {
         <h1 className="hero-title-main" style={{ fontFamily: 'var(--font-serif)', fontSize: '3.5rem', lineHeight: '1', marginBottom: '2rem', fontStyle: 'italic', color: 'var(--text-primary)' }}>
           Silence in <br /> Composition
         </h1>
-        <a href="#shop" onClick={scrollToShop} className="primary-btn" style={{ display: 'inline-block', padding: '1rem 2rem', border: '1px solid var(--border-color)', color: 'var(--text-primary)', textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.1em', textDecoration: 'none' }}>
+        <Link to="/shop" className="primary-btn" style={{ display: 'inline-block', padding: '1rem 2rem', border: '1px solid var(--border-color)', color: 'var(--text-primary)', textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.1em', textDecoration: 'none' }}>
           DISCOVER THE CURATIONS
-        </a>
+        </Link>
       </motion.div>
       
     </section>

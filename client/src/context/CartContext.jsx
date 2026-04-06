@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import { createContext, useReducer, useEffect } from 'react';
 
 export const CartContext = createContext();
