@@ -1,5 +1,5 @@
 import { useTheme } from '../../context/ThemeContext';
-import { motion } from 'framer-motion';
+
 
 export default function Footer() {
   const { theme } = useTheme();

@@ -13,7 +13,7 @@ describe('App Root', () => {
     }));
 
     render(<App />);
-    const linkElement = screen.getByText(/ATELIER OBSIDIAN/i);
-    expect(linkElement).toBeInTheDocument();
+    const linkElements = screen.getAllByText(/NŪMA/i);
+    expect(linkElements.length).toBeGreaterThan(0);
   });
 });

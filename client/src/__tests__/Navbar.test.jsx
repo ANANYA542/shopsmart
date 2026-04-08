@@ -27,7 +27,7 @@ describe('Navbar Component', () => {
 
   it('renders the branding logo dynamically', () => {
     renderWithProviders(<Navbar />);
-    // By default Dark Theme -> 'ATELIER OBSIDIAN'
-    expect(screen.getByText(/ATELIER OBSIDIAN/i)).toBeInTheDocument();
+    // By default Dark Theme -> 'NŪMA'
+    expect(screen.getByText(/NŪMA/i)).toBeInTheDocument();
   });
 });
